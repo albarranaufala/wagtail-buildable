@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "watch-tailwind": "npx @tailwindcss/cli -i ./buildable/static/css/tailwind_input.css -o ./buildable/static/css/tailwind.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.6",
+    "tailwindcss": "^4.1.6"
+  }
+}

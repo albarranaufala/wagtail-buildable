@@ -2,6 +2,7 @@ from wagtail.models import Page
 from wagtail.fields import StreamField
 from wagtail import blocks
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.admin.panels import FieldPanel
 
 
 class BuildablePage(Page):
@@ -11,8 +12,14 @@ class BuildablePage(Page):
                 "section",
                 blocks.StructBlock(
                     [
-                        ("add_container", blocks.BooleanBlock(default=True)),
-                        ("add_vertical_padding", blocks.BooleanBlock(default=True)),
+                        (
+                            "add_container",
+                            blocks.BooleanBlock(default=True, required=False),
+                        ),
+                        (
+                            "add_vertical_padding",
+                            blocks.BooleanBlock(default=True, required=False),
+                        ),
                         (
                             "children",
                             blocks.StreamBlock(
@@ -99,3 +106,7 @@ class BuildablePage(Page):
             )
         ]
     )
+
+    content_panels = Page.content_panels + [
+        FieldPanel("body"),
+    ]
